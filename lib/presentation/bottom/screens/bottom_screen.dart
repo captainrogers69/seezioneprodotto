@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:seezioneprodotto/components/k_tabs.dart';
+import 'package:seezioneprodotto/components/seezione_appbar.dart';
 import 'package:seezioneprodotto/components/sizing_box.dart';
 import 'package:seezioneprodotto/config/routers/nav_service.dart';
 import 'package:seezioneprodotto/data_source/local_data/seezione_data.dart';
@@ -27,14 +28,10 @@ class BottomScreen extends HookConsumerWidget {
     return Scaffold(
       key: drawerKey,
       drawer: SideMenu(drawerKey: drawerKey),
-      appBar: AppBar(
-        // elevation: 6,
-        title: Text(
-          "Menu",
-          style: Kstyles.kAppBarTextStyle.copyWith(
-            fontFamily: KFonts.EuclidBold.name,
-          ),
-        ),
+      appBar: SeezioneAppBar(
+        shouldBack: false,
+        drawerKey: drawerKey,
+        title: "Menu",
         actions: [
           TextButton(
             onPressed: () {
@@ -74,16 +71,22 @@ class BottomScreen extends HookConsumerWidget {
               "Select a Product to try",
               style: Kstyles.kHeadingTextStyle,
             ),
-            KTabs(
-              controller: tabController,
-              tab1: "ALL CATEGORIES",
-              tab2: "COATS",
-              tab3: "SWEATERS",
-              tab4: "TROUSERS",
-              tab5: "SHIRT",
-              tab6: "T-SHIRT",
-              tab7: "SHORTS",
-              tab8: "SHOES",
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                KTabs(
+                  controller: tabController,
+                  isScrollable: false,
+                  tab1: "ALL CATEGORIES",
+                  tab2: "COATS",
+                  tab3: "SWEATERS",
+                  tab4: "TROUSERS",
+                  tab5: "SHIRT",
+                  tab6: "T-SHIRT",
+                  tab7: "SHORTS",
+                  tab8: "SHOES",
+                ),
+              ],
             ),
             Expanded(
               child: TabBarView(
@@ -105,7 +108,7 @@ class BottomScreen extends HookConsumerWidget {
                           ? 3
                           : Responsive.isTablet(context)
                               ? 4
-                              : 5,
+                              : 7,
                       itemBuilder: (BuildContext context, int j) {
                         return ProductCard(
                           onTap: () {

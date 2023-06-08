@@ -4,7 +4,7 @@ import 'package:seezioneprodotto/components/sizing_box.dart';
 import 'package:seezioneprodotto/utils/constants/button_state.dart';
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 import 'package:seezioneprodotto/utils/constants/k_styles.dart';
-import 'package:seezioneprodotto/utils/reponsive_utils/size_config.dart';
+import 'package:seezioneprodotto/utils/reponsive_utils/responsive_util.dart';
 
 class KIconButton extends StatelessWidget {
   final ButtonState buttonState;
@@ -48,7 +48,7 @@ class KIconButton extends StatelessWidget {
           ),
           onPressed: onTap,
           height: height ?? 45,
-          minWidth: width ?? size.width * 0.35,
+          minWidth: width ?? Responsive.width(context) * 0.35,
           color: KColors.whiteColor,
           elevation: 5,
           // splashColor: Colors.grey[100],

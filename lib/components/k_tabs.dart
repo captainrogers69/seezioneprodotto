@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seezioneprodotto/utils/constants/container_util.dart';
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 import 'package:seezioneprodotto/utils/constants/k_styles.dart';
+import 'package:seezioneprodotto/utils/reponsive_utils/responsive_util.dart';
 
 class KTabs extends StatelessWidget {
   final TabController controller;
@@ -28,6 +29,67 @@ class KTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Responsive(
+        desktop: TempTabs(
+          controller: controller,
+          tab1: tab1,
+          tab2: tab2,
+          tab3: tab3,
+          tab4: tab4,
+          tab5: tab5,
+          tab6: tab6,
+          tab7: tab7,
+          tab8: tab8,
+        ),
+        mobile: TempTabs(
+          controller: controller,
+          tab1: tab1,
+          tab2: tab2,
+          tab3: tab3,
+          tab4: tab4,
+          tab5: tab5,
+          tab6: tab6,
+          tab7: tab7,
+          tab8: tab8,
+        ),
+        tablet: TempTabs(
+          controller: controller,
+          tab1: tab1,
+          tab2: tab2,
+          tab3: tab3,
+          tab4: tab4,
+          tab5: tab5,
+          tab6: tab6,
+          tab7: tab7,
+          tab8: tab8,
+        ));
+  }
+}
+
+class TempTabs extends StatelessWidget {
+  final TabController controller;
+  final String? tab1, tab2, tab3, tab4;
+  final String? tab5, tab6, tab7, tab8;
+  final bool? isScrollable;
+  final double? vertMargin;
+  final Color? color;
+  const TempTabs(
+      {super.key,
+      this.color,
+      this.vertMargin = 10,
+      this.isScrollable = true,
+      required this.controller,
+      required this.tab1,
+      required this.tab2,
+      this.tab3,
+      this.tab4,
+      this.tab5,
+      this.tab6,
+      this.tab7,
+      this.tab8});
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: 38,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: vertMargin!),
@@ -39,7 +101,7 @@ class KTabs extends StatelessWidget {
         // ),
         borderRadius: witRadiusStan,
       ),
-      width: MediaQuery.of(context).size.width,
+      // width: size.width,
       child: Center(
         child: TabBar(
           isScrollable: isScrollable!,
@@ -51,7 +113,7 @@ class KTabs extends StatelessWidget {
           // ),
           labelColor: KColors.yellowColor,
           labelStyle: Kstyles.kSmallTextStyle.copyWith(
-            fontFamily: KFonts.EuclidBold.name,
+            fontFamily: KFonts.UbuntuBold.name,
           ),
           unselectedLabelColor: KColors().greyColor,
           tabs: tab8 != null

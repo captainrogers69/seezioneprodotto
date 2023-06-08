@@ -10,7 +10,7 @@ class AppTheme {
     //  const Color(0xffeeefee),
     // primaryColor: primaryColor,
     cardColor: Colors.white,
-    fontFamily: KFonts.EuclidBold.name,
+    fontFamily: KFonts.UbuntuBold.name,
     appBarTheme: AppBarTheme(
       // backgroundColor: primaryColor,
       titleTextStyle: Kstyles.kAppBarTextStyle.copyWith(
@@ -37,12 +37,12 @@ class AppTheme {
     useMaterial3: true,
     primaryColor: const Color(0xff04b4f3),
     cardColor: Colors.white,
-    fontFamily: KFonts.Poppins.name,
+    fontFamily: KFonts.UbuntuBold.name,
     scaffoldBackgroundColor: const Color(0xFF0f101c),
     appBarTheme: AppBarTheme(
       // color: whiteColor,
       titleTextStyle: Kstyles.kAppBarTextStyle.copyWith(
-        fontFamily: KFonts.EuclidBold.name,
+        fontFamily: KFonts.UbuntuBold.name,
       ),
       iconTheme: const IconThemeData(
           // color: whiteColor,

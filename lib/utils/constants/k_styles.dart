@@ -3,7 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 
-enum KFonts { EuclidBold, EuclidRegular, BalooChettan2, Poppins }
+enum KFonts {
+  Poppins,
+  EuclidBold,
+  UbuntuBold,
+  UbuntuMedium,
+  EuclidRegular,
+  BalooChettan2,
+  UbuntuRegular,
+}
 
 class Kstyles {
   final kSplashStyle = TextStyle(

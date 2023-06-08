@@ -8,7 +8,7 @@ import 'package:seezioneprodotto/components/sizing_box.dart';
 import 'package:seezioneprodotto/config/routers/nav_service.dart';
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 import 'package:seezioneprodotto/utils/constants/k_styles.dart';
-import 'package:seezioneprodotto/utils/reponsive_utils/size_config.dart';
+import 'package:seezioneprodotto/utils/reponsive_utils/responsive_util.dart';
 
 class HeadingText extends StatelessWidget {
   final Widget? actionCompo;
@@ -32,7 +32,7 @@ class HeadingText extends StatelessWidget {
             heading,
             style: Kstyles.kMediumTextStyle.copyWith(
               fontWeight: FontWeight.w700,
-              fontSize: getFontSize(15),
+              fontSize: Responsive.getFontSize(15),
             ),
           ),
           actionCompo ??
@@ -90,7 +90,7 @@ class ModernSheet extends StatelessWidget {
                               () async {
                                 Navigate.instance.pushBack();
                               },
-                          width: size.width * .42,
+                          width: Responsive.width(context) * .42,
                         ),
                         KButton(
                           buttonName: submitTitle ?? '',
@@ -98,7 +98,7 @@ class ModernSheet extends StatelessWidget {
                               () {
                                 log('temp shouldnt');
                               },
-                          width: size.width * .42,
+                          width: Responsive.width(context) * .42,
                         ),
                       ],
                     ),
@@ -137,14 +137,14 @@ class FooterCompo extends StatelessWidget {
                   () async {
                     Navigate.instance.pushBack();
                   },
-              width: size.width * .42,
+              width: Responsive.width(context) * .42,
             ),
             KButton(
               height: 39,
               hardColor: KColors.yellowColor,
               buttonName: submitTitle ?? '',
               onTap: submitButton,
-              width: size.width * .42,
+              width: Responsive.width(context) * .42,
             ),
           ],
         ),

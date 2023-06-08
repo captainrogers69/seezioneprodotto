@@ -1,7 +1,6 @@
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 import 'package:flutter/material.dart';
 import '../utils/constants/k_styles.dart';
-import '../utils/reponsive_utils/size_config.dart';
 
 class KRegularDivider extends StatelessWidget {
   final double? horizontal, thick, vertical;
@@ -105,7 +104,7 @@ class KOrDivider extends StatelessWidget {
       children: [
         const Expanded(child: Divider(thickness: 1.5)),
         Padding(
-          padding: EdgeInsets.all(getSize(10)),
+          padding: const EdgeInsets.all(10),
           child: Text(
             title ?? "Or",
             style: Kstyles.kSmallTextStyle,

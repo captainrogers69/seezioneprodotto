@@ -11,7 +11,7 @@ import 'package:seezioneprodotto/presentation/test_outfits/compo/create_outfit_s
 import 'package:seezioneprodotto/utils/constants/container_util.dart';
 import 'package:seezioneprodotto/utils/constants/k_colors.dart';
 import 'package:seezioneprodotto/utils/constants/k_styles.dart';
-import 'package:seezioneprodotto/utils/reponsive_utils/size_config.dart';
+import 'package:seezioneprodotto/utils/reponsive_utils/responsive_util.dart';
 
 class SelectOutfitSheet extends HookConsumerWidget {
   const SelectOutfitSheet({super.key});
@@ -64,7 +64,7 @@ class SelectOutfitSheet extends HookConsumerWidget {
             KButton(
               buttonName: "Create An Outfit",
               height: 38,
-              width: size.width * .95,
+              width: Responsive.width(context) * .95,
               hardColor: KColors.yellowColor,
               onTap: () {
                 Navigate.instance.pushBack();
