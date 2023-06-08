@@ -20,6 +20,54 @@ class Responsive extends StatelessWidget {
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1100;
 
+  static double height(BuildContext context) =>
+      MediaQuery.of(context).size.height;
+
+  static double width(BuildContext context) =>
+      MediaQuery.of(context).size.width;
+
+  static MediaQueryData _mediaQueryData(context) => MediaQuery.of(context);
+  static double screenWidth(context) => _mediaQueryData(context).size.width;
+  static double screenHeight(context) => _mediaQueryData(context).size.height;
+  static Orientation orientation(context) =>
+      _mediaQueryData(context).orientation;
+
+  static double getProportionateScreenHeight(
+      {required double inputHeight, required BuildContext context}) {
+    double localScreenHeight = screenHeight(context);
+    return (inputHeight / 812.0) * localScreenHeight;
+  }
+
+  static double getProportionateScreenWidth(
+      {required double inputWidth, required BuildContext context}) {
+    double localScreenWidth = screenWidth(context);
+    return (inputWidth / 375.0) * localScreenWidth;
+  }
+
+  static final window = WidgetsBinding.instance.window;
+  static Size size = window.physicalSize / window.devicePixelRatio;
+
+  static double getHorizontalSize(double px) => px * (size.width / 375);
+
+  static double getVerticalSize(double px) {
+    num statusBar = MediaQueryData.fromWindow(window).viewPadding.top;
+    num screenHeight = size.height - statusBar;
+    return px * (screenHeight / 812);
+  }
+
+  static double getSize(double px) {
+    final height = getVerticalSize(px);
+    final width = getHorizontalSize(px);
+
+    if (height < width) {
+      return height.toInt().toDouble();
+    } else {
+      return width.toInt().toDouble();
+    }
+  }
+
+  static double getFontSize(double px) => getSize(px);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

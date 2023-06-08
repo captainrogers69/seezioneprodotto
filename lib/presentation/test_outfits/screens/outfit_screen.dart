@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:seezioneprodotto/components/seezione_appbar.dart';
 import 'package:seezioneprodotto/components/sizing_box.dart';
 import 'package:seezioneprodotto/general_providers.dart';
 import 'package:seezioneprodotto/presentation/test_outfits/compo/outfit_card.dart';
 import 'package:seezioneprodotto/utils/constants/k_routes.dart';
-import 'package:seezioneprodotto/utils/constants/k_styles.dart';
 
 class OutfitScreen extends HookConsumerWidget {
   static const id = KRoutes.outfitScreen;
@@ -14,24 +14,23 @@ class OutfitScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Your Outfits",
-          style: Kstyles.kAppBarTextStyle.copyWith(
-            fontFamily: KFonts.EuclidBold.name,
-          ),
-        ),
+      appBar: const SeezioneAppBar(
+        title: "Your Outfits",
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              ref
-                  .watch(seezioneProvider)
-                  .selectedOutfits[outfitIndex]
-                  .keys
-                  .elementAt(0),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Text(
+                ref
+                    .watch(seezioneProvider)
+                    .selectedOutfits[outfitIndex]
+                    .keys
+                    .elementAt(0),
+              ),
             ),
             const Sbh(h: 5),
             ListView.builder(

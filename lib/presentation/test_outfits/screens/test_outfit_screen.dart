@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:seezioneprodotto/components/k_empty.dart';
+import 'package:seezioneprodotto/components/seezione_appbar.dart';
 import 'package:seezioneprodotto/config/routers/nav_service.dart';
 import 'package:seezioneprodotto/general_providers.dart';
 import 'package:seezioneprodotto/presentation/bottom/compo/product_card.dart';
@@ -14,14 +15,7 @@ class TestOutfitScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Your Outfits to test",
-          style: Kstyles.kAppBarTextStyle.copyWith(
-            fontFamily: KFonts.EuclidBold.name,
-          ),
-        ),
-      ),
+      appBar: const SeezioneAppBar(title: "Your Outfits to test"),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

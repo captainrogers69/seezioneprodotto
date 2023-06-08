@@ -1,5 +1,5 @@
 import 'package:seezioneprodotto/utils/constants/k_assets.dart';
-import 'package:seezioneprodotto/utils/reponsive_utils/size_config.dart';
+import 'package:seezioneprodotto/utils/reponsive_utils/responsive_util.dart';
 import 'package:seezioneprodotto/components/sizing_box.dart';
 import 'package:flutter/material.dart';
 import '../utils/constants/k_styles.dart';
@@ -17,14 +17,22 @@ class KEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 85),
-      width: size.width,
+      width: Responsive.width(context),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             KAssets.emptyWidget,
-            width: size.width / 1.3,
-            height: size.width / 1.5,
+            width: Responsive.isDesktop(context)
+                ? 400
+                : Responsive.isTablet(context)
+                    ? 200
+                    : Responsive.width(context) / 1.3,
+            height: Responsive.isDesktop(context)
+                ? 400
+                : Responsive.isTablet(context)
+                    ? 200
+                    : Responsive.width(context) / 1.5,
           ),
           const Sbh(h: 20),
           Text(

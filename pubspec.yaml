@@ -81,12 +81,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: EuclidBold
+    - family: UbuntuRegular
       fonts:
-        - asset: fonts/eulid/Euclid Circular B Bold.ttf
-    - family: EuclidRegular
+        - asset: fonts/ubuntu/Ubuntu-R.ttf
+    - family: UbuntuBold
       fonts:
-        - asset: fonts/eulid/Euclid Circular B Regular.ttf
+        - asset: fonts/ubuntu/Ubuntu-B.ttf
+    - family: UbuntuMedium
+      fonts:
+        - asset: fonts/ubuntu/Ubuntu-M.ttf
 
   #   - family: Trajan Pro
   #     fonts:
